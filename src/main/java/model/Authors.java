@@ -1,6 +1,7 @@
 package model;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +11,7 @@ import javax.persistence.ManyToMany;
 
 
 @Entity
-public class Authors{
+public class Authors {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,7 +19,7 @@ public class Authors{
     private String firstname;
     private String lastname;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "authors")
     private Set<Books> books = new HashSet<>();
 
     public Authors() {
@@ -29,7 +30,7 @@ public class Authors{
         this.firstname = firstname;
         this.lastname = lastname;
         this.books = books;
-        }
+    }
 
     public Long getId() {
         return id;
@@ -40,28 +41,41 @@ public class Authors{
     }
 
     public String getFirstname() {
-            return firstname;
-        }
-        public void setFirstname(String firstname) {
-            this.firstname = firstname;
-        }
-
-        public String getLastname() {
-            return lastname;
-        }
-
-
-
-        public void setLastname(String lastname) {
-            this.lastname = lastname;
-        }
-
-        public Set<Books> getBooks() {
-            return books;
-        }
-
-        public void setBooks(Set<Books> books) {
-            this.books = books;
-        }
+        return firstname;
     }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Set<Books> getBooks() {
+        return books;
+    }
+
+    public void setBooks(Set<Books> books) {
+        this.books = books;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Authors)) return false;
+        Authors authors = (Authors) o;
+        return Objects.equals(id, authors.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+}
 
