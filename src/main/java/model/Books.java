@@ -80,13 +80,15 @@ import javax.persistence.ManyToMany;
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Books)) return false;
+
         Books books = (Books) o;
-        return Objects.equals(id, books.id);
+
+        return id != null ? id.equals(books.id) : books.id == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
 }
 

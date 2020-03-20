@@ -69,13 +69,15 @@ public class Authors {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Authors)) return false;
+
         Authors authors = (Authors) o;
-        return Objects.equals(id, authors.id);
+
+        return id != null ? id.equals(authors.id) : authors.id == null;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return id != null ? id.hashCode() : 0;
     }
 }
 
