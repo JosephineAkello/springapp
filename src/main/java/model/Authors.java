@@ -66,6 +66,16 @@ public class Authors {
     }
 
     @Override
+    public String toString() {
+        return "Authors{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", books=" + books +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Authors)) return false;

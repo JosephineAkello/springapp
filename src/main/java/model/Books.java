@@ -77,6 +77,17 @@ import javax.persistence.ManyToMany;
     }
 
     @Override
+    public String toString() {
+        return "Books{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", isbn='" + isbn + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", authors=" + authors +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Books)) return false;
