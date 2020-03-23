@@ -29,7 +29,7 @@ public class Authors {
     public Authors(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.books = books;
+
     }
 
     public Long getId() {

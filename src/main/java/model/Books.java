@@ -26,22 +26,15 @@ import javax.persistence.ManyToMany;
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Authors> authors = new HashSet<>();
+    
 
     public Books() {
 
     }
 
-    public Books(String title, String isbn, String publisher) {
+    public Books(String title, String isbn) {
         this.title = title;
         this.isbn = isbn;
-        this.publisher = publisher;
-    }
-
-    public Books(String title, String isbn, String publisher, Set<Authors> authors) {
-        this.title = title;
-        this.isbn = isbn;
-        this.publisher = publisher;
-        this.authors = authors;
     }
 
     public String getTitle() {
