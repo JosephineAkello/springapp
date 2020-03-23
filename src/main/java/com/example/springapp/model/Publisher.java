@@ -1,4 +1,4 @@
-package model;
+package com.example.springapp.model;
 
 import java.util.HashSet;
 import java.util.Set;

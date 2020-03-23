@@ -1,7 +1,7 @@
-package Repository;
+package com.example.springapp.Repository;
 
 
-import model.Books;
+import com.example.springapp.model.Books;
 import org.springframework.data.repository.CrudRepository;
 
 //firt param takes type, then value

@@ -1,12 +1,12 @@
-package Bootsrap;
+package com.example.springapp.Bootsrap;
 
-import Repository.AuthorRepository;
-import Repository.BookRepository;
-import Repository.PublisherRepository;
-import model.Authors;
+import com.example.springapp.Repository.AuthorRepository;
+import com.example.springapp.Repository.BookRepository;
+import com.example.springapp.Repository.PublisherRepository;
+import com.example.springapp.model.Authors;
 
-import model.Books;
-import model.Publisher;
+import com.example.springapp.model.Books;
+import com.example.springapp.model.Publisher;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
