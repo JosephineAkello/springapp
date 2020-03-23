@@ -1,7 +1,6 @@
 package model;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,7 +13,7 @@ import javax.persistence.ManyToOne;
 
 
 @Entity
-    public class Books {
+public class Books {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
