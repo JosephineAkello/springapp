@@ -31,8 +31,8 @@ public class BootsrapData implements CommandLineRunner {
         maureen.getBooks().add(ddd);
         ddd.getAuthors().add(maureen);
 
-      authorRepository.save(maureen);
-      bookRepository.save(ddd);
+        authorRepository.save(maureen);
+        bookRepository.save(ddd);
 
 
         Authors jos = new Authors("Jos", "Josephine");
