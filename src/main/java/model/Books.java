@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -20,7 +21,9 @@ import javax.persistence.ManyToMany;
     private Long id;
     private String title;
     private String isbn;
-    private String publisher;
+
+    @ManyToOne
+    private Publisher publisher;
 
     @ManyToMany
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
@@ -37,6 +40,14 @@ import javax.persistence.ManyToMany;
         this.isbn = isbn;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -51,14 +62,6 @@ import javax.persistence.ManyToMany;
 
     public void setIsbn(String isbn) {
         this.isbn = isbn;
-    }
-
-    public String getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(String publisher) {
-        this.publisher = publisher;
     }
 
     public Set<Authors> getAuthors() {
