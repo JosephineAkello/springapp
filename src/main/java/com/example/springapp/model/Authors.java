@@ -11,13 +11,15 @@ import javax.persistence.ManyToMany;
 
 @Entity
 public class Authors {
-    @ManyToMany(mappedBy = "authors")
-    private Set<Books> books = new HashSet<>();
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long       id;
     private String     firstname;
     private String     lastname;
+
+    @ManyToMany(mappedBy = "authors")
+    private Set<Books> books = new HashSet<>();
 
     public Authors() {}
 
@@ -26,36 +28,13 @@ public class Authors {
         this.lastname  = lastname;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-
-        if (!(o instanceof Authors)) {
-            return false;
-        }
-
-        Authors authors = (Authors) o;
-
-        return (id != null)
-               ? id.equals(authors.id)
-               : authors.id == null;
+    public Long getId() {
+        return id;
     }
 
-    @Override
-    public int hashCode() {
-        return (id != null)
-               ? id.hashCode()
-               : 0;
+    public void setId(Long id) {
+        this.id = id;
     }
-
-    @Override
-    public String toString() {
-        return "Authors{" + "id=" + id + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\''
-               + ", books=" + books + '}';
-    }
-
     public Set<Books> getBooks() {
         return books;
     }
@@ -72,13 +51,6 @@ public class Authors {
         this.firstname = firstname;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getLastname() {
         return lastname;
@@ -86,6 +58,37 @@ public class Authors {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    @Override
+    public String toString() {
+        return "Authors{" + "id=" + id + ", firstname='" + firstname + '\'' + ", lastname='" + lastname + '\''
+                + ", books=" + books + '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof Authors)) {
+            return false;
+        }
+
+        Authors authors = (Authors) o;
+
+        return (id != null)
+                ? id.equals(authors.id)
+                : authors.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return (id != null)
+                ? id.hashCode()
+                : 0;
     }
 }
 
